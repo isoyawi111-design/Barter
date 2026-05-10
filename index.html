@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B-Tech Market | Ecommerce Market Place</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Css/style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,600&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css"
+    />
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="header">
+            <h2 class="logo">Be Marketing-E Commerce</h2>
+
+            <div class="navbar">
+                <div class="logoimg">
+                    <img src="Images/logo 1.jpg" width="150px" height="80px" alt="Logo" />
+                </div>
+
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="./B-Tech Market.html">Home</a></li>
+                        <li><a href="./About.html">About</a></li>
+                        <li><a href="./Services.html">Services</a></li>
+                        <li><a href="./Contact.html">Contacts</a></li>
+                        <li><button id="loginBtn">Login</button></li>
+                    </ul>
+                </nav>
+
+                <img src="Images/blue cart.png" width="40px" height="40px" alt="Cart" />
+
+                <img
+                    src="Images/menu icon"
+                    class="menu-icon"
+                    onclick="menutoggle()"
+                    alt="Menu"
+                />
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Button -->
+    <button
+        class="menu-btn"
+        aria-expanded="false"
+        aria-label="Toggle Menu"
+    >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <!-- ================= LOGIN MODAL ================= -->
+    <div class="wrapper" style="display: none;">
+        <span class="icon-close" style="color:red; cursor:pointer;">
+            <ion-icon name="close"></ion-icon>
+        </span>
+
+        <div class="form-box login">
+            <h2>Login</h2>
+
+            <form id="loginForm">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required />
+                    <label>Email</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required />
+                    <label>Password</label>
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" /> Remember me
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+
+                <div class="login-register">
+                    Don't have an account?
+                    <a href="#" class="register-link">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= HERO SECTION ================= -->
+    <br /><br /><br />
+
+    <div class="row">
+        <div class="col-2">
+            <h1>Give your Product <br /><br /> A New Selling Way</h1>
+            <p>
+                This is a best place to show case your product,
+                items in a much <br />
+                user firendly way online.Choose B-Tech online store.
+            </p>
+            <a href="" class="btn">
+                Explore Now <span>&#8594;</span>
+            </a>
+        </div>
+
+        <div class="col-2">
+            <img src="Images/Pig's task.jpeg" alt="Hero Image" />
+        </div>
+    </div>
+
+    <!-- ================= FEATURED CATEGORIES ================= -->
+    <div class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="Images/Category 1.jpg" alt="Category 1" />
+                </div>
+                <div class="col-3">
+                    <img src="Images/Category 2.jpg" alt="Category 2" />
+                </div>
+                <div class="col-3">
+                    <img src="Images/Category 3.jpg" alt="Category 3" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FEATURED PRODUCTS ================= -->
+    <div class="small-container">
+        <h2 class="title">Featured Products</h2>
+
+        <div class="row">
+            <div class="col-4">
+                <img src="Images/Product 1.jpg" alt="" />
+                <h4>Traditional PNG Taro</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>PGK20.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 1 a.jpg" alt="" />
+                <h4>Traditional PNG Taro</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>PGK20.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 1 b.jpg" alt="" />
+                <h4>Traditional PNG Taro</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>PGK20.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 1 c.jpg" alt="" />
+                <h4>Traditional PNG Taro</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>PGK20.00</p>
+            </div>
+        </div>
+
+        <!-- Latest Products -->
+        <h2 class="title">Latest Products</h2>
+
+        <div class="row">
+            <div class="col-4">
+                <img src="Images/Product 2.jpg" alt="" />
+                <h4>Traditional PNG Betelnut</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>PGK150.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 3.jpg" alt="" />
+                <h4>Traditional PNG Pitpit</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>PGK10.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 4.jpg" alt="" />
+                <h4>Traditional PNG Sukundumi Carving</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>PGK250.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 5.jpg" alt="" />
+                <h4>Traditional PNG Green Meriblouse</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>PGK20.00</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <img src="Images/Product 6.jpg" alt="" />
+                <h4>Traditional PNG Stitched Neck and Arm Meriblouse</h4>
+                <p>PGK20.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 7.jpg" alt="" />
+                <h4>Traditional PNG Flag Meri blouse</h4>
+                <p>PGK100.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 8.jpg" alt="" />
+                <h4>Traditional PNG Dry Bean Cocoa</h4>
+                <p>PGK1000.00</p>
+            </div>
+
+            <div class="col-4">
+                <img src="Images/Product 9.jpg" alt="" />
+                <h4>Traditional PNG Dried Coffee</h4>
+                <p>PGK500.00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= OFFER ================= -->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img
+                        src="Images/Offer Product.jpg"
+                        class="offer-img"
+                        alt="Offer Product"
+                    />
+                </div>
+
+                <div class="col-2">
+                    <p>Exclusive Available in B-Tech Market</p>
+                    <h1>Smart Pure PNG Gold Jewellery Products</h1>
+                    <small>
+                        This product is highly valuable and offer are placed at
+                        39% off global jewelry market.
+                    </small>
+                    <a href="" class="btn">Buy Now &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TESTIMONIAL ================= -->
+    <div class="testmonial">
+        <div class="small-container">
+            <div class="row">
+                <!-- Existing testimonial content remains unchanged -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= BRANDS ================= -->
+    <div class="brands">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5"><img src="Images/Logo 1.jpeg" alt="" /></div>
+                <div class="col-5"><img src="Images/Logo 2" alt="" /></div>
+                <div class="col-5"><img src="Images/Logo 3" alt="" /></div>
+                <div class="col-5"><img src="Images/Logo 4" alt="" /></div>
+                <div class="col-5"><img src="Images/Logo 5" alt="" /></div>
+                <div class="col-5"><img src="Images/Logo 6" alt="" /></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download our App</h3>
+                    <p>Download our app for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="Images/App_Google Play Store 1.jpg" alt="" />
+                        <img src="Images/App_Apple Store 1" alt="" />
+                    </div>
+                </div>
+
+                <div class="footer-col-2">
+                    <img src="Images/Logo.jpg" alt="" />
+                    <p>
+                        Our Purpose is to make your products visible in a greater
+                        community online.
+                    </p>
+                </div>
+
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr />
+            <p class="copyright">
+                Copyright © 2024- B-Tech Online Market
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= LOGIN SCRIPT ================= -->
+    <script>
+        const modal = document.querySelector(".wrapper");
+        const loginBtn = document.getElementById("loginBtn");
+        const closeBtn = document.querySelector(".icon-close");
+        const form = document.getElementById("loginForm");
+
+        loginBtn.onclick = () => {
+            modal.style.display = "block";
+        };
+
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+            form.reset();
+        };
+
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                form.reset();
+            }
+        };
+
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                modal.style.display = "none";
+                form.reset();
+            }
+        });
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            alert("Logged in!");
+            modal.style.display = "none";
+            form.reset();
+        });
+    </script>
+
+    <!-- ================= MENU TOGGLE SCRIPT ================= -->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+
+    <!-- External JS -->
+    <script src="Javascript/webresponsive.js"></script>
+    <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./Javascript/mobilemenu.js"></script>
+
+</body>
+</html>
