@@ -1,459 +1,694 @@
+<!--
+========================================================================
+B-TECH MARKET - COMPLETE SINGLE FILE INDEX.HTML
+Includes:
+1. HTML
+2. Internal CSS
+3. Internal JavaScript
+4. Navigation Links:
+   - index.html
+   - About.html
+   - Services.html
+   - Contact.html
+========================================================================
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>B-Tech Market | Ecommerce Market Place</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>B-Tech Market | Ecommerce Market Place</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="Css/style.css" />
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,600&display=swap"
-        rel="stylesheet"
-    />
+<!-- Font Awesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css"
-    />
+<!-- Ionicons -->
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+
+<style>
+/* ===================== RESET ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* ===================== LINKS ===================== */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===================== HEADER ===================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: radial-gradient(#fff, #f1f106);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    max-width: 1300px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-section img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #070219;
+}
+
+/* ===================== NAVIGATION ===================== */
+nav {
+    flex: 1;
+    text-align: right;
+    margin-left: 30px;
+}
+
+#MenuItems {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+}
+
+#MenuItems li a {
+    font-weight: 500;
+    color: #111;
+    position: relative;
+}
+
+#MenuItems li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #ff523b;
+    transition: 0.3s;
+}
+
+#MenuItems li a:hover::after {
+    width: 100%;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn,
+#loginBtn {
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.btn:hover,
+#loginBtn:hover {
+    background: #563434;
+}
+
+/* ===================== CART ===================== */
+.cart-icon {
+    width: 40px;
+    margin-left: 20px;
+}
+
+/* ===================== MENU BUTTON ===================== */
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #111;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* ===================== CONTAINERS ===================== */
+.container,
+.small-container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+.small-container {
+    max-width: 1080px;
+}
+
+/* ===================== ROW/COLUMNS ===================== */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col-2 img {
+    width: 100%;
+    padding: 30px 0;
+}
+
+.col-2 h1 {
+    font-size: 50px;
+    line-height: 1.2;
+    margin: 25px 0;
+}
+
+.col-3 {
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.col-3 img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.col-4 {
+    flex-basis: 25%;
+    min-width: 200px;
+    padding: 10px;
+    margin-bottom: 50px;
+    transition: 0.3s;
+}
+
+.col-4:hover {
+    transform: translateY(-5px);
+}
+
+.col-4 img {
+    width: 100%;
+}
+
+.col-5 {
+    width: 160px;
+}
+
+.col-5 img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.col-5 img:hover {
+    filter: grayscale(0);
+}
+
+/* ===================== HERO ===================== */
+.hero {
+    margin-top: 120px;
+    padding: 50px 0;
+}
+
+/* ===================== TITLES ===================== */
+.title {
+    text-align: center;
+    margin: 0 auto 60px;
+    position: relative;
+    line-height: 60px;
+}
+
+.title::after {
+    content: '';
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ===================== RATING ===================== */
+.rating i {
+    color: #ff523b;
+}
+
+/* ===================== SECTIONS ===================== */
+.categories {
+    margin: 70px 0;
+}
+
+.offer {
+    background: radial-gradient(#fff, #f1f106);
+    margin-top: 80px;
+    padding: 30px 0;
+}
+
+.offer-img {
+    padding: 50px;
+}
+
+/* ===================== BRANDS ===================== */
+.brands {
+    margin: 100px auto;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+    background: #99cb8de2;
+    color: #fff;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p {
+    color: #fff;
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+}
+
+.footer-col-1,
+.footer-col-2,
+.footer-col-3,
+.footer-col-4 {
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1 {
+    flex-basis: 30%;
+}
+
+.footer-col-2 {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-col-2 img {
+    width: 160px;
+    margin-bottom: 20px;
+}
+
+.footer-col-3,
+.footer-col-4 {
+    flex-basis: 12%;
+    text-align: center;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.app-logo img {
+    width: 140px;
+    margin-right: 10px;
+}
+
+.footer hr {
+    border: none;
+    background: #fff;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.copyright {
+    text-align: center;
+}
+
+/* ===================== LOGIN MODAL ===================== */
+.wrapper {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper.active {
+    display: flex;
+}
+
+.form-box {
+    width: 400px;
+    max-width: 90%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.icon-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: red;
+    cursor: pointer;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    color: #162938;
+}
+
+.input-box {
+    position: relative;
+    margin: 25px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 40px 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 12px;
+    top: 40px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.login-register {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 800px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        margin-left: 0;
+    }
+
+    #MenuItems {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.9);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    #MenuItems.active {
+        display: flex;
+    }
+
+    #MenuItems li a,
+    #MenuItems li button {
+        color: #fff;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .col-2 h1 {
+        font-size: 32px;
+    }
+
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5 {
+        flex-basis: 100%;
+        width: 100%;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header>
-        <div class="header">
-            <h2 class="logo">Be Marketing-E Commerce</h2>
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+    <div class="navbar">
 
-            <div class="navbar">
-                <div class="logoimg">
-                    <img src="Images/logo 1.jpg" width="150px" height="80px" alt="Logo" />
-                </div>
+        <div class="logo-section">
+            <img src="Images/logo 1.jpg" alt="Logo">
+            <h2 class="logo">B-Tech Market</h2>
+        </div>
 
-             <!-- Replace ONLY this navigation menu section in your index.html -->
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><button id="loginBtn">Login</button></li>
+            </ul>
+        </nav>
 
-<nav>
-    <ul id="MenuItems">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./About.html">About</a></li>
-        <li><a href="./Services.html">Services</a></li>
-        <li><a href="./Contact.html">Contacts</a></li>
-        <li><button id="loginBtn">Login</button></li>
-    </ul>
-</nav>
+        <img src="Images/blue cart.png" class="cart-icon" alt="Cart">
 
-                <img src="Images/blue cart.png" width="40px" height="40px" alt="Cart" />
+        <button class="menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
 
-                <img
-                    src="Images/menu icon"
-                    class="menu-icon"
-                    onclick="menutoggle()"
-                    alt="Menu"
-                />
+    </div>
+</header>
+
+<!-- ===================== LOGIN MODAL ===================== -->
+<div class="wrapper">
+    <div class="form-box">
+        <span class="icon-close">&times;</span>
+
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" required>
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
             </div>
-        </div>
-    </header>
 
-    <!-- Mobile Menu Button -->
-    <button
-        class="menu-btn"
-        aria-expanded="false"
-        aria-label="Toggle Menu"
-    >
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-
-    <!-- ================= LOGIN MODAL ================= -->
-    <div class="wrapper" style="display: none;">
-        <span class="icon-close" style="color:red; cursor:pointer;">
-            <ion-icon name="close"></ion-icon>
-        </span>
-
-        <div class="form-box login">
-            <h2>Login</h2>
-
-            <form id="loginForm">
-                <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="mail"></ion-icon>
-                    </span>
-                    <input type="email" required />
-                    <label>Email</label>
-                </div>
-
-                <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="lock-closed"></ion-icon>
-                    </span>
-                    <input type="password" required />
-                    <label>Password</label>
-                </div>
-
-                <div class="remember-forgot">
-                    <label>
-                        <input type="checkbox" /> Remember me
-                    </label>
-                    <a href="#">Forgot password?</a>
-                </div>
-
-                <button type="submit" class="btn">Login</button>
-
-                <div class="login-register">
-                    Don't have an account?
-                    <a href="#" class="register-link">Register</a>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- ================= HERO SECTION ================= -->
-    <br /><br /><br />
-
-    <div class="row">
-        <div class="col-2">
-            <h1>Give your Product <br /><br /> A New Selling Way</h1>
-            <p>
-                This is a best place to show case your product,
-                items in a much <br />
-                user firendly way online.Choose B-Tech online store.
-            </p>
-            <a href="" class="btn">
-                Explore Now <span>&#8594;</span>
-            </a>
-        </div>
-
-        <div class="col-2">
-            <img src="Images/Pig's task.jpeg" alt="Hero Image" />
-        </div>
-    </div>
-
-    <!-- ================= FEATURED CATEGORIES ================= -->
-    <div class="categories">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-3">
-                    <img src="Images/Category 1.jpg" alt="Category 1" />
-                </div>
-                <div class="col-3">
-                    <img src="Images/Category 2.jpg" alt="Category 2" />
-                </div>
-                <div class="col-3">
-                    <img src="Images/Category 3.jpg" alt="Category 3" />
-                </div>
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" required>
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
             </div>
-        </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="login-register">
+                Don't have an account?
+                <a href="#" class="register-link">Register</a>
+            </div>
+        </form>
     </div>
+</div>
 
-    <!-- ================= FEATURED PRODUCTS ================= -->
-    <div class="small-container">
-        <h2 class="title">Featured Products</h2>
-
+<!-- ===================== HERO SECTION ===================== -->
+<section class="hero">
+    <div class="container">
         <div class="row">
-            <div class="col-4">
-                <img src="Images/Product 1.jpg" alt="" />
-                <h4>Traditional PNG Taro</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>PGK20.00</p>
+            <div class="col-2">
+                <h1>Give Your Product A New Selling Way</h1>
+                <p>
+                    This is the best place to showcase your products
+                    in a user-friendly way online.
+                </p>
+                <a href="#" class="btn">Explore Now &#8594;</a>
             </div>
 
-            <div class="col-4">
-                <img src="Images/Product 1 a.jpg" alt="" />
-                <h4>Traditional PNG Taro</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>PGK20.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="Images/Product 1 b.jpg" alt="" />
-                <h4>Traditional PNG Taro</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>PGK20.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="Images/Product 1 c.jpg" alt="" />
-                <h4>Traditional PNG Taro</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>PGK20.00</p>
+            <div class="col-2">
+                <img src="Images/Pig's task.jpeg" alt="Hero Image">
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Latest Products -->
-        <h2 class="title">Latest Products</h2>
-
+<!-- ===================== FOOTER ===================== -->
+<div class="footer">
+    <div class="container">
         <div class="row">
-            <div class="col-4">
-                <img src="Images/Product 2.jpg" alt="" />
-                <h4>Traditional PNG Betelnut</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>PGK150.00</p>
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download our app for Android and iOS mobile phone.</p>
             </div>
 
-            <div class="col-4">
-                <img src="Images/Product 3.jpg" alt="" />
-                <h4>Traditional PNG Pitpit</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>PGK10.00</p>
+            <div class="footer-col-2">
+                <img src="Images/Logo.jpg" alt="Footer Logo">
+                <p>Our purpose is to make your products visible online.</p>
             </div>
 
-            <div class="col-4">
-                <img src="Images/Product 4.jpg" alt="" />
-                <h4>Traditional PNG Sukundumi Carving</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div>
-                <p>PGK250.00</p>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
             </div>
 
-            <div class="col-4">
-                <img src="Images/Product 5.jpg" alt="" />
-                <h4>Traditional PNG Green Meriblouse</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>PGK20.00</p>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-4">
-                <img src="Images/Product 6.jpg" alt="" />
-                <h4>Traditional PNG Stitched Neck and Arm Meriblouse</h4>
-                <p>PGK20.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="Images/Product 7.jpg" alt="" />
-                <h4>Traditional PNG Flag Meri blouse</h4>
-                <p>PGK100.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="Images/Product 8.jpg" alt="" />
-                <h4>Traditional PNG Dry Bean Cocoa</h4>
-                <p>PGK1000.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="Images/Product 9.jpg" alt="" />
-                <h4>Traditional PNG Dried Coffee</h4>
-                <p>PGK500.00</p>
-            </div>
-        </div>
+        <hr>
+        <p class="copyright">
+            Copyright © 2024 - B-Tech Online Market
+        </p>
     </div>
+</div>
 
-    <!-- ================= OFFER ================= -->
-    <div class="offer">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-2">
-                    <img
-                        src="Images/Offer Product.jpg"
-                        class="offer-img"
-                        alt="Offer Product"
-                    />
-                </div>
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-                <div class="col-2">
-                    <p>Exclusive Available in B-Tech Market</p>
-                    <h1>Smart Pure PNG Gold Jewellery Products</h1>
-                    <small>
-                        This product is highly valuable and offer are placed at
-                        39% off global jewelry market.
-                    </small>
-                    <a href="" class="btn">Buy Now &#8594;</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    // ================= MENU TOGGLE =================
+    const menuBtn = document.querySelector(".menu-btn");
+    const menuItems = document.getElementById("MenuItems");
 
-    <!-- ================= TESTIMONIAL ================= -->
-    <div class="testmonial">
-        <div class="small-container">
-            <div class="row">
-                <!-- Existing testimonial content remains unchanged -->
-            </div>
-        </div>
-    </div>
+    menuBtn.addEventListener("click", function () {
+        menuItems.classList.toggle("active");
+        menuBtn.setAttribute(
+            "aria-expanded",
+            menuItems.classList.contains("active")
+        );
+    });
 
-    <!-- ================= BRANDS ================= -->
-    <div class="brands">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-5"><img src="Images/Logo 1.jpeg" alt="" /></div>
-                <div class="col-5"><img src="Images/Logo 2" alt="" /></div>
-                <div class="col-5"><img src="Images/Logo 3" alt="" /></div>
-                <div class="col-5"><img src="Images/Logo 4" alt="" /></div>
-                <div class="col-5"><img src="Images/Logo 5" alt="" /></div>
-                <div class="col-5"><img src="Images/Logo 6" alt="" /></div>
-            </div>
-        </div>
-    </div>
+    // ================= LOGIN MODAL =================
+    const modal = document.querySelector(".wrapper");
+    const loginBtn = document.getElementById("loginBtn");
+    const closeBtn = document.querySelector(".icon-close");
+    const loginForm = document.getElementById("loginForm");
 
-    <!-- ================= FOOTER ================= -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Download our App</h3>
-                    <p>Download our app for Android and ios mobile phone.</p>
-                    <div class="app-logo">
-                        <img src="Images/App_Google Play Store 1.jpg" alt="" />
-                        <img src="Images/App_Apple Store 1" alt="" />
-                    </div>
-                </div>
+    loginBtn.addEventListener("click", function () {
+        modal.classList.add("active");
+    });
 
-                <div class="footer-col-2">
-                    <img src="Images/Logo.jpg" alt="" />
-                    <p>
-                        Our Purpose is to make your products visible in a greater
-                        community online.
-                    </p>
-                </div>
+    closeBtn.addEventListener("click", function () {
+        modal.classList.remove("active");
+        loginForm.reset();
+    });
 
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>YouTube</li>
-                    </ul>
-                </div>
-            </div>
-
-            <hr />
-            <p class="copyright">
-                Copyright © 2024- B-Tech Online Market
-            </p>
-        </div>
-    </div>
-
-    <!-- ================= LOGIN SCRIPT ================= -->
-    <script>
-        const modal = document.querySelector(".wrapper");
-        const loginBtn = document.getElementById("loginBtn");
-        const closeBtn = document.querySelector(".icon-close");
-        const form = document.getElementById("loginForm");
-
-        loginBtn.onclick = () => {
-            modal.style.display = "block";
-        };
-
-        closeBtn.onclick = () => {
-            modal.style.display = "none";
-            form.reset();
-        };
-
-        window.onclick = (event) => {
-            if (event.target === modal) {
-                modal.style.display = "none";
-                form.reset();
-            }
-        };
-
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-                modal.style.display = "none";
-                form.reset();
-            }
-        });
-
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            alert("Logged in!");
-            modal.style.display = "none";
-            form.reset();
-        });
-    </script>
-
-    <!-- ================= MENU TOGGLE SCRIPT ================= -->
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
-
-        MenuItems.style.maxHeight = "0px";
-
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            } else {
-                MenuItems.style.maxHeight = "0px";
-            }
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.classList.remove("active");
+            loginForm.reset();
         }
-    </script>
+    });
 
-    <!-- External JS -->
-    <script src="Javascript/webresponsive.js"></script>
-    <script
-        type="module"
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-        nomodule
-        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="./Javascript/mobilemenu.js"></script>
+    window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            modal.classList.remove("active");
+            loginForm.reset();
+        }
+    });
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Logged in successfully!");
+        modal.classList.remove("active");
+        loginForm.reset();
+    });
+
+});
+</script>
 
 </body>
 </html>
