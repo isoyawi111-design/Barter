@@ -19,8 +19,18 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 />
 
+<!-- Ionicons -->
+<script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+
 <style>
-/* ================= RESET ================= */
+/* ===================== RESET ===================== */
 * {
     margin: 0;
     padding: 0;
@@ -29,17 +39,18 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #52de1b;
     color: #555;
-    line-height: 1.7;
+    background: #52de1b;
+    line-height: 1.6;
 }
 
+/* ===================== LINKS ===================== */
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* ================= HEADER ================= */
+/* ===================== HEADER ===================== */
 .header {
     position: fixed;
     top: 0;
@@ -78,7 +89,7 @@ a {
     color: #070219;
 }
 
-/* ================= NAVIGATION ================= */
+/* ===================== NAVIGATION ===================== */
 nav {
     flex: 1;
     text-align: right;
@@ -114,7 +125,7 @@ nav {
     width: 100%;
 }
 
-/* ================= BUTTONS ================= */
+/* ===================== BUTTONS ===================== */
 .btn,
 #loginBtn {
     display: inline-block;
@@ -133,14 +144,14 @@ nav {
     background: #563434;
 }
 
-/* ================= CART ================= */
+/* ===================== CART ===================== */
 .cart-icon {
     width: 40px;
     height: 40px;
     margin-left: 20px;
 }
 
-/* ================= MOBILE MENU BUTTON ================= */
+/* ===================== MENU BUTTON ===================== */
 .menu-btn {
     display: none;
     background: transparent;
@@ -158,27 +169,34 @@ nav {
     border-radius: 3px;
 }
 
-/* ================= CONTAINERS ================= */
-.container {
+/* ===================== CONTAINERS ===================== */
+.container,
+.small-container {
     max-width: 1300px;
     margin: auto;
     padding: 0 25px;
 }
 
+.small-container {
+    max-width: 1080px;
+}
+
+/* ===================== ROW/COLUMNS ===================== */
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
 }
 
-/* ================= ABOUT SECTION ================= */
+/* ===================== ABOUT SECTION ===================== */
 .about-section {
-    margin-top: 130px;
-    margin-bottom: 60px;
+    margin-top: 140px;
+    margin-bottom: 80px;
 }
 
 .about-content {
-    background: #ffffff;
+    background: #fff;
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -193,7 +211,8 @@ nav {
 .about-content h2,
 .about-content h3 {
     color: #070219;
-    margin: 30px 0 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .about-content p {
@@ -201,7 +220,7 @@ nav {
     text-align: justify;
 }
 
-/* ================= FOOTER ================= */
+/* ===================== FOOTER ===================== */
 .footer {
     background: #99cb8de2;
     color: #fff;
@@ -251,7 +270,7 @@ nav {
 
 .app-logo img {
     width: 140px;
-    margin: 5px;
+    margin-right: 10px;
 }
 
 .footer hr {
@@ -265,7 +284,82 @@ nav {
     text-align: center;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ===================== LOGIN MODAL ===================== */
+.wrapper {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper.active {
+    display: flex;
+}
+
+.form-box {
+    width: 400px;
+    max-width: 90%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.icon-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: red;
+    cursor: pointer;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    color: #162938;
+}
+
+.input-box {
+    position: relative;
+    margin: 25px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 40px 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 12px;
+    top: 40px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.login-register {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 800px) {
     .menu-btn {
         display: block;
@@ -318,12 +412,12 @@ nav {
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- ===================== HEADER ===================== -->
 <header class="header">
     <div class="navbar">
 
         <div class="logo-section">
-            <img src="logo.jpg" alt="B-Tech Market Logo">
+            <img src="logo.jpg" alt="Logo">
             <h2 class="logo">B-Tech Market</h2>
         </div>
 
@@ -341,7 +435,7 @@ nav {
             src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
             class="cart-icon"
             alt="Shopping Cart"
-        >
+        />
 
         <button class="menu-btn" aria-label="Toggle Menu" aria-expanded="false">
             <span class="bar"></span>
@@ -352,7 +446,48 @@ nav {
     </div>
 </header>
 
-<!-- ================= ABOUT SECTION ================= -->
+<!-- ===================== LOGIN MODAL ===================== -->
+<div class="wrapper">
+    <div class="form-box">
+        <span class="icon-close">&times;</span>
+
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" required>
+                <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+            </div>
+
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" required>
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+            </div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="login-register">
+                Don't have an account?
+                <a href="#" class="register-link">Register</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ===================== ABOUT SECTION ===================== -->
 <section class="about-section">
     <div class="container">
         <div class="about-content">
@@ -368,13 +503,10 @@ nav {
             </p>
 
             <h2>Our Mission</h2>
-
             <p>
                 At B-Tech Market, our mission is to empower local communities by
                 providing a versatile online marketplace that promotes sustainable
-                and fair trade practices. We aim to give every seller a platform
-                to reach a broader audience while ensuring buyers receive
-                high-quality and unique products.
+                and fair trade practices.
             </p>
 
             <p>
@@ -383,7 +515,6 @@ nav {
             </p>
 
             <h2>Our Vision</h2>
-
             <p>
                 We envision a vibrant and inclusive marketplace where the rich
                 cultural heritage and entrepreneurial spirit of Papua New Guinea
@@ -391,10 +522,10 @@ nav {
             </p>
 
             <h3>What We Offer</h3>
-
             <p>
                 <strong>Diverse Product Range:</strong> Handcrafted goods,
-                traditional crafts, agricultural products, fashion, and everyday essentials.
+                traditional crafts, agricultural products, fashion, and
+                everyday essentials.
             </p>
 
             <p>
@@ -408,7 +539,6 @@ nav {
             </p>
 
             <h3>Why Choose B-Tech Market?</h3>
-
             <p>
                 <strong>Support Local Sellers:</strong> Your purchases directly
                 benefit entrepreneurs and local communities.
@@ -433,26 +563,19 @@ nav {
     </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ===================== FOOTER ===================== -->
 <div class="footer">
     <div class="container">
         <div class="row">
 
             <div class="footer-col-1">
                 <h3>Download Our App</h3>
-                <p>Download our app for Android and iOS mobile phones.</p>
-                <div class="app-logo">
-                    <img src="Images/App_Google Play Store 1.jpg" alt="Google Play">
-                    <img src="Images/App_Apple Store 1.jpg" alt="Apple Store">
-                </div>
+                <p>Download our app for Android and iOS mobile phone.</p>
             </div>
 
             <div class="footer-col-2">
-                <img src="logo.jpg" alt="B-Tech Logo">
-                <p>
-                    Our purpose is to make your products visible in a greater
-                    online community.
-                </p>
+                <img src="Images/Logo.jpg" alt="Footer Logo">
+                <p>Our purpose is to make your products visible online.</p>
             </div>
 
             <div class="footer-col-3">
@@ -484,9 +607,11 @@ nav {
     </div>
 </div>
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- ===================== JAVASCRIPT ===================== -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
+    /* ===== MENU TOGGLE ===== */
     const menuBtn = document.querySelector(".menu-btn");
     const menuItems = document.getElementById("MenuItems");
 
@@ -497,6 +622,43 @@ document.addEventListener("DOMContentLoaded", function () {
             menuItems.classList.contains("active")
         );
     });
+
+    /* ===== LOGIN MODAL ===== */
+    const modal = document.querySelector(".wrapper");
+    const loginBtn = document.getElementById("loginBtn");
+    const closeBtn = document.querySelector(".icon-close");
+    const loginForm = document.getElementById("loginForm");
+
+    loginBtn.addEventListener("click", function () {
+        modal.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", function () {
+        modal.classList.remove("active");
+        loginForm.reset();
+    });
+
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.classList.remove("active");
+            loginForm.reset();
+        }
+    });
+
+    window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            modal.classList.remove("active");
+            loginForm.reset();
+        }
+    });
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Logged in successfully!");
+        modal.classList.remove("active");
+        loginForm.reset();
+    });
+
 });
 </script>
 
