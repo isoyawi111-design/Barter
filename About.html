@@ -1,81 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>B-Tech Market | About Us</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>B-Tech Market | About Us</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="Css/style.css" />
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+/>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,600&display=swap"
-        rel="stylesheet"
-    />
+<!-- Font Awesome -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css"
-    />
+<style>
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #52de1b;
+    color: #555;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ================= HEADER ================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: radial-gradient(#fff, #f1f106);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    max-width: 1300px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-section img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #070219;
+}
+
+/* ================= NAVIGATION ================= */
+nav {
+    flex: 1;
+    text-align: right;
+    margin-left: 30px;
+}
+
+#MenuItems {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+}
+
+#MenuItems li a {
+    font-weight: 500;
+    color: #111;
+    position: relative;
+}
+
+#MenuItems li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #ff523b;
+    transition: 0.3s;
+}
+
+#MenuItems li a:hover::after {
+    width: 100%;
+}
+
+/* ================= BUTTONS ================= */
+.btn,
+#loginBtn {
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.btn:hover,
+#loginBtn:hover {
+    background: #563434;
+}
+
+/* ================= CART ================= */
+.cart-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+/* ================= MOBILE MENU BUTTON ================= */
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #111;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* ================= CONTAINERS ================= */
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-section {
+    margin-top: 130px;
+    margin-bottom: 60px;
+}
+
+.about-content {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.about-content h1 {
+    font-size: 42px;
+    color: #070219;
+    margin-bottom: 30px;
+}
+
+.about-content h2,
+.about-content h3 {
+    color: #070219;
+    margin: 30px 0 15px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #99cb8de2;
+    color: #fff;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p {
+    color: #fff;
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+}
+
+.footer-col-1,
+.footer-col-2,
+.footer-col-3,
+.footer-col-4 {
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1 {
+    flex-basis: 30%;
+}
+
+.footer-col-2 {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-col-2 img {
+    width: 160px;
+    margin-bottom: 20px;
+}
+
+.footer-col-3,
+.footer-col-4 {
+    flex-basis: 12%;
+    text-align: center;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.app-logo img {
+    width: 140px;
+    margin: 5px;
+}
+
+.footer hr {
+    border: none;
+    background: #fff;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.copyright {
+    text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 800px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        margin-left: 0;
+    }
+
+    #MenuItems {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.9);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    #MenuItems.active {
+        display: flex;
+    }
+
+    #MenuItems li a,
+    #MenuItems li button {
+        color: #fff;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .about-content {
+        padding: 30px 20px;
+    }
+
+    .about-content h1 {
+        font-size: 30px;
+    }
+
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
 </head>
 
-<body style="background-color: #52de1b;">
+<body>
 
-    <!-- ================= HEADER ================= -->
-    <header>
-        <div class="header">
-            <h2 class="logo">Be Marketing-E Commerce</h2>
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="navbar">
 
-            <div class="navbar">
-                <div class="logoimg">
-                    <img
-                        src="Images/logo 1.jpg"
-                        width="150px"
-                        height="80px"
-                        alt="B-Tech Logo"
-                    />
-                </div>
-
-                <nav class="navigation">
-                    <ul id="MenuItems">
-                        <!-- Home link changed from B-Tech Market.html to index.html -->
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./About.html">About</a></li>
-                        <li><a href="./Services.html">Services</a></li>
-                        <li><a href="./Contact.html">Contacts</a></li>
-                        <li><button class="btnLogin-popup">Login</button></li>
-                    </ul>
-                </nav>
-
-                <img
-                    src="Images/blue cart.png"
-                    width="40px"
-                    height="40px"
-                    alt="Cart"
-                />
-
-                <img
-                    src="Images/menu icon"
-                    class="menu-icon"
-                    onclick="menutoggle()"
-                    alt="Menu"
-                />
-            </div>
+        <div class="logo-section">
+            <img src="logo.jpg" alt="B-Tech Market Logo">
+            <h2 class="logo">B-Tech Market</h2>
         </div>
-    </header>
 
-    <br />
-    <br />
-    <br />
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><button id="loginBtn">Login</button></li>
+            </ul>
+        </nav>
 
-    <!-- ================= ABOUT CONTENT ================= -->
-    <div class="row">
-        <div class="col-2">
-            <h1>All about us<br /><br /><br />B-Tech</h1>
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+            class="cart-icon"
+            alt="Shopping Cart"
+        >
+
+        <button class="menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+    </div>
+</header>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-content">
+
+            <h1>About B-Tech Market</h1>
 
             <p>
                 Welcome to B-Tech Market, your go-to destination for an incredible
@@ -85,156 +367,138 @@
                 them with buyers from around the world.
             </p>
 
-            <br />
-
             <h2>Our Mission</h2>
-            <br />
 
             <p>
                 At B-Tech Market, our mission is to empower local communities by
                 providing a versatile online marketplace that promotes sustainable
                 and fair trade practices. We aim to give every seller a platform
-                to reach a broader audience, while ensuring that buyers receive
-                high-quality, unique products.
-
-                Every transaction helps to support local economies and fosters
-                growth and development in the region.
+                to reach a broader audience while ensuring buyers receive
+                high-quality and unique products.
             </p>
 
-            <br />
+            <p>
+                Every transaction helps support local economies and fosters
+                growth and development throughout Papua New Guinea and the Pacific.
+            </p>
 
             <h2>Our Vision</h2>
-            <br />
 
             <p>
                 We envision a vibrant and inclusive marketplace where the rich
                 cultural heritage and entrepreneurial spirit of Papua New Guinea
-                and the Pacific region are celebrated. By connecting local sellers
-                with global consumers, we hope to create a thriving community that
-                values authenticity, quality, and sustainability.
+                and the Pacific region are celebrated globally.
             </p>
-
-            <br />
 
             <h3>What We Offer</h3>
-            <br />
 
             <p>
-                Diverse Product Range: From handcrafted goods and traditional
-                crafts to contemporary products and everyday essentials, B-Tech
-                Market offers a wide variety of items to meet all your needs.
-                <br /><br />
-
-                Quality Assurance: We are committed to ensuring that every product
-                sold on our platform meets high standards of quality and
-                authenticity.
-                <br /><br />
-
-                Sustainable Practices: We prioritize sustainability and ethical
-                sourcing, ensuring that our operations benefit both the
-                environment and the communities we serve.
+                <strong>Diverse Product Range:</strong> Handcrafted goods,
+                traditional crafts, agricultural products, fashion, and everyday essentials.
             </p>
 
-            <br />
+            <p>
+                <strong>Quality Assurance:</strong> Every product is carefully
+                selected to meet high standards of quality and authenticity.
+            </p>
+
+            <p>
+                <strong>Sustainable Practices:</strong> We prioritize ethical
+                sourcing and environmentally responsible operations.
+            </p>
 
             <h3>Why Choose B-Tech Market?</h3>
-            <br />
 
             <p>
-                Support Local Sellers: By shopping with us, you directly support
-                local entrepreneurs, helping them to grow their businesses and
-                improve their livelihoods.
-                <br /><br />
-
-                Unique Selection: Discover a curated collection of products that
-                you won’t find anywhere else, each item telling a story of its
-                origin and creator.
-                <br /><br />
-
-                Convenience and Trust: Enjoy a seamless shopping experience with
-                reliable customer service and secure transactions.
+                <strong>Support Local Sellers:</strong> Your purchases directly
+                benefit entrepreneurs and local communities.
             </p>
-
-            <br />
 
             <p>
-                Join us in celebrating the diversity and creativity of Papua New
-                Guinea and the Pacific region. Explore our marketplace and find
-                unique products that reflect the rich cultural tapestry of this
-                vibrant part of the world.
-                <br /><br />
-
-                Thank you for choosing B-Tech Market – where tradition meets
-                innovation, and local sellers connect with the global community.
+                <strong>Unique Selection:</strong> Discover products that tell
+                the story of Papua New Guinea’s culture and creativity.
             </p>
+
+            <p>
+                <strong>Convenience and Trust:</strong> Enjoy a seamless shopping
+                experience with secure transactions and reliable service.
+            </p>
+
+            <p>
+                Thank you for choosing B-Tech Market — where tradition meets
+                innovation and local sellers connect with the global community.
+            </p>
+
         </div>
     </div>
+</section>
 
-    <!-- ================= FOOTER ================= -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Download our App</h3>
-                    <p>Download our app for Android and ios mobile phone.</p>
-                    <div class="app-logo">
-                        <img src="Images/App_Google Play Store 1.jpg" alt="" />
-                        <img src="Images/App_Apple Store 1" alt="" />
-                    </div>
-                </div>
+<!-- ================= FOOTER ================= -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
 
-                <div class="footer-col-2">
-                    <img src="Images/Logo.jpg" alt="Logo" />
-                    <p>
-                        Our Purpose is to make your products visible in a greater
-                        community online.
-                    </p>
-                </div>
-
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>YouTube</li>
-                    </ul>
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download our app for Android and iOS mobile phones.</p>
+                <div class="app-logo">
+                    <img src="Images/App_Google Play Store 1.jpg" alt="Google Play">
+                    <img src="Images/App_Apple Store 1.jpg" alt="Apple Store">
                 </div>
             </div>
 
-            <hr />
-            <p class="copyright">
-                Copyright © 2024- B-Tech Online Market
-            </p>
+            <div class="footer-col-2">
+                <img src="logo.jpg" alt="B-Tech Logo">
+                <p>
+                    Our purpose is to make your products visible in a greater
+                    online community.
+                </p>
+            </div>
+
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+
         </div>
+
+        <hr>
+        <p class="copyright">
+            Copyright © 2024 - B-Tech Online Market
+        </p>
     </div>
+</div>
 
-    <!-- ================= MENU TOGGLE SCRIPT ================= -->
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const menuItems = document.getElementById("MenuItems");
 
-        if (MenuItems) {
-            MenuItems.style.maxHeight = "0px";
-        }
-
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            } else {
-                MenuItems.style.maxHeight = "0px";
-            }
-        }
-    </script>
+    menuBtn.addEventListener("click", function () {
+        menuItems.classList.toggle("active");
+        menuBtn.setAttribute(
+            "aria-expanded",
+            menuItems.classList.contains("active")
+        );
+    });
+});
+</script>
 
 </body>
 </html>
