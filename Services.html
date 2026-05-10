@@ -1,80 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>B-Tech Market | Services</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>B-Tech Market | Services</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="Css/style.css" />
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+/>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,600&display=swap"
-        rel="stylesheet"
-    />
+<!-- Font Awesome -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css"
-    />
+<!-- Ionicons -->
+<script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+
+<style>
+/* ===================== RESET ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #555;
+    background: #52de1b;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===================== HEADER ===================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: radial-gradient(#fff, #f1f106);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    max-width: 1300px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-section img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #070219;
+}
+
+/* ===================== NAVIGATION ===================== */
+nav {
+    flex: 1;
+    text-align: right;
+    margin-left: 30px;
+}
+
+#MenuItems {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+}
+
+#MenuItems li a {
+    font-weight: 500;
+    color: #111;
+    position: relative;
+}
+
+#MenuItems li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #ff523b;
+    transition: 0.3s;
+}
+
+#MenuItems li a:hover::after,
+#MenuItems li a.active::after {
+    width: 100%;
+}
+
+#MenuItems li a.active {
+    color: #ff523b;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn,
+#loginBtn {
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.btn:hover,
+#loginBtn:hover {
+    background: #563434;
+}
+
+/* ===================== CART ===================== */
+.cart-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+/* ===================== MENU BUTTON ===================== */
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #111;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* ===================== CONTAINERS ===================== */
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 25px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* ===================== SERVICES SECTION ===================== */
+.services-section {
+    margin-top: 130px;
+    margin-bottom: 60px;
+}
+
+.services-content {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.services-content h1 {
+    font-size: 42px;
+    color: #070219;
+    margin-bottom: 30px;
+}
+
+.services-content h2,
+.services-content h3 {
+    color: #070219;
+    margin: 30px 0 15px;
+}
+
+.services-content p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+    background: #99cb8de2;
+    color: #fff;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p {
+    color: #fff;
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+}
+
+.footer-col-1,
+.footer-col-2,
+.footer-col-3,
+.footer-col-4 {
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1 {
+    flex-basis: 30%;
+}
+
+.footer-col-2 {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-col-2 img {
+    width: 160px;
+    margin-bottom: 20px;
+}
+
+.footer-col-3,
+.footer-col-4 {
+    flex-basis: 12%;
+    text-align: center;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.app-logo img {
+    width: 140px;
+    margin: 5px;
+}
+
+.footer hr {
+    border: none;
+    background: #fff;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.copyright {
+    text-align: center;
+}
+
+/* ===================== LOGIN MODAL ===================== */
+.wrapper {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper.active {
+    display: flex;
+}
+
+.form-box {
+    width: 400px;
+    max-width: 90%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.icon-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: red;
+    cursor: pointer;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    color: #162938;
+}
+
+.input-box {
+    position: relative;
+    margin: 25px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 40px 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 12px;
+    top: 40px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.login-register {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 800px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        margin-left: 0;
+    }
+
+    #MenuItems {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.9);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    #MenuItems.active {
+        display: flex;
+    }
+
+    #MenuItems li a,
+    #MenuItems li button {
+        color: #fff;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .services-content {
+        padding: 30px 20px;
+    }
+
+    .services-content h1 {
+        font-size: 30px;
+    }
+
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
 </head>
 
-<body style="background-color: #52de1b;">
+<body>
 
-    <!-- ================= HEADER ================= -->
-    <header>
-        <div class="header">
-            <h2 class="logo">Be Marketing-E Commerce</h2>
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+    <div class="navbar">
 
-            <div class="navbar">
-                <div class="logoimg">
-                    <img
-                        src="Images/logo 1.jpg"
-                        width="150px"
-                        height="80px"
-                        alt="B-Tech Logo"
-                    />
-                </div>
-
-                <nav class="navigation">
-                    <ul id="MenuItems">
-                        <!-- All pages linked together -->
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./About.html">About</a></li>
-                        <li><a href="./Services.html">Services</a></li>
-                        <li><a href="./Contact.html">Contacts</a></li>
-                        <li><button class="btnLogin-popup">Login</button></li>
-                    </ul>
-                </nav>
-
-                <img
-                    src="Images/blue cart.png"
-                    width="40px"
-                    height="40px"
-                    alt="Cart"
-                />
-
-                <img
-                    src="Images/menu icon"
-                    class="menu-icon"
-                    onclick="menutoggle()"
-                    alt="Menu"
-                />
-            </div>
+        <div class="logo-section">
+            <img src="logo.jpg" alt="B-Tech Market Logo">
+            <h2 class="logo">B-Tech Market</h2>
         </div>
-    </header>
 
-    <br />
-    <br />
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Services.html" class="active">Services</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><button id="loginBtn">Login</button></li>
+            </ul>
+        </nav>
 
-    <!-- ================= SERVICES CONTENT ================= -->
-    <div class="row">
-        <div class="col-2">
-            <h1>Our Services<br /><br /><br /></h1>
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+            class="cart-icon"
+            alt="Shopping Cart"
+        >
+
+        <button class="menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+    </div>
+</header>
+
+<!-- ===================== LOGIN MODAL ===================== -->
+<div class="wrapper">
+    <div class="form-box">
+        <span class="icon-close">&times;</span>
+
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" required>
+                <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+            </div>
+
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" required>
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="login-register">
+                Don't have an account?
+                <a href="#">Register</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ===================== SERVICES SECTION ===================== -->
+<section class="services-section">
+    <div class="container">
+        <div class="services-content">
+
+            <h1>Our Services</h1>
 
             <p>
                 At B-Tech Market, we are committed to providing a comprehensive
@@ -82,16 +494,11 @@
                 from Papua New Guinea and the broader Pacific region.
             </p>
 
-            <br />
-
             <h3>1. Online Marketplace for Local Sellers</h3>
             <p>
                 We provide a robust online platform where local entrepreneurs,
-                artisans, and small businesses can showcase and sell their
-                products.
+                artisans, and small businesses can showcase and sell their products.
             </p>
-
-            <br />
 
             <h3>2. Secure and Easy Transactions</h3>
             <p>
@@ -99,15 +506,11 @@
                 giving both sellers and buyers peace of mind.
             </p>
 
-            <br />
-
             <h3>3. Quality Assurance</h3>
             <p>
                 We are dedicated to maintaining high standards for all products
                 sold on B-Tech Market.
             </p>
-
-            <br />
 
             <h3>4. Customizable Storefronts</h3>
             <p>
@@ -115,15 +518,11 @@
                 and product listings.
             </p>
 
-            <br />
-
             <h3>5. Marketing and Promotion</h3>
             <p>
                 We offer marketing and promotional services to help sellers reach
                 a wider audience.
             </p>
-
-            <br />
 
             <h3>6. Customer Support</h3>
             <p>
@@ -131,111 +530,144 @@
                 sellers and buyers.
             </p>
 
-            <br />
-
             <h3>7. Sustainable and Ethical Practices</h3>
             <p>
                 We prioritize sustainability and ethical sourcing, supporting
                 fair trade practices.
             </p>
 
-            <br />
-
             <h3>8. Shipping and Delivery</h3>
             <p>
                 We facilitate reliable shipping and delivery services to ensure
-                products arrive safely.
+                products arrive safely and on time.
             </p>
-
-            <br />
 
             <h3>9. Community Building</h3>
             <p>
-                B-Tech Market is more than just a marketplace; it’s a community.
+                B-Tech Market is more than just a marketplace; it is a community
+                that connects creators, businesses, and customers.
             </p>
-
-            <br />
 
             <h3>10. Educational Resources</h3>
             <p>
                 We provide educational resources and workshops for sellers to
-                help them grow their businesses.
+                help them grow their businesses successfully.
             </p>
-
-            <br />
 
             <p>
                 At B-Tech Market, we are dedicated to creating a thriving
                 ecosystem where local products shine on a global stage.
             </p>
+
         </div>
     </div>
+</section>
 
-    <!-- ================= FOOTER ================= -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Download our App</h3>
-                    <p>Download our app for Android and ios mobile phone.</p>
-                    <div class="app-logo">
-                        <img src="Images/App_Google Play Store 1.jpg" alt="" />
-                        <img src="Images/App_Apple Store 1" alt="" />
-                    </div>
-                </div>
+<!-- ===================== FOOTER ===================== -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
 
-                <div class="footer-col-2">
-                    <img src="Images/Logo.jpg" alt="Logo" />
-                    <p>
-                        Our Purpose is to make your products visible in a greater
-                        community online.
-                    </p>
-                </div>
-
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>YouTube</li>
-                    </ul>
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download our app for Android and iOS mobile phones.</p>
+                <div class="app-logo">
+                    <img src="Images/App_Google Play Store 1.jpg" alt="Google Play">
+                    <img src="Images/App_Apple Store 1.jpg" alt="Apple Store">
                 </div>
             </div>
 
-            <hr />
-            <p class="copyright">
-                Copyright © 2024- B-Tech Online Market
-            </p>
+            <div class="footer-col-2">
+                <img src="logo.jpg" alt="B-Tech Logo">
+                <p>
+                    Our purpose is to make your products visible in a greater
+                    online community.
+                </p>
+            </div>
+
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+
         </div>
+
+        <hr>
+        <p class="copyright">
+            Copyright © 2024 - B-Tech Online Market
+        </p>
     </div>
+</div>
 
-    <!-- ================= MENU TOGGLE SCRIPT ================= -->
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-        if (MenuItems) {
-            MenuItems.style.maxHeight = "0px";
+    // Mobile menu toggle
+    const menuBtn = document.querySelector(".menu-btn");
+    const menuItems = document.getElementById("MenuItems");
+
+    menuBtn.addEventListener("click", function () {
+        menuItems.classList.toggle("active");
+        menuBtn.setAttribute(
+            "aria-expanded",
+            menuItems.classList.contains("active")
+        );
+    });
+
+    // Login modal
+    const modal = document.querySelector(".wrapper");
+    const loginBtn = document.getElementById("loginBtn");
+    const closeBtn = document.querySelector(".icon-close");
+    const loginForm = document.getElementById("loginForm");
+
+    loginBtn.addEventListener("click", function () {
+        modal.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", function () {
+        modal.classList.remove("active");
+        loginForm.reset();
+    });
+
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.classList.remove("active");
+            loginForm.reset();
         }
+    });
 
-        function menutoggle() {
-            if (MenuItems.style.maxHeight === "0px") {
-                MenuItems.style.maxHeight = "200px";
-            } else {
-                MenuItems.style.maxHeight = "0px";
-            }
+    window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            modal.classList.remove("active");
+            loginForm.reset();
         }
-    </script>
+    });
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Logged in successfully!");
+        modal.classList.remove("active");
+        loginForm.reset();
+    });
+
+});
+</script>
 
 </body>
 </html>
